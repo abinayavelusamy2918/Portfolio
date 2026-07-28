@@ -126,8 +126,9 @@
     <div class="section-inner">
       <div class="eyebrow reveal">02 — AREAS OF EXPERTISE</div>
       <h2 class="reveal">What I actually run programs on.</h2>
-      <p class="lede reveal d1">Four disciplines that show up in every program I lead, regardless of industry.</p>
+      <p class="lede reveal d1">Four disciplines that show up in every program I lead, regardless of industry. <span class="lede-hint">Click through the stack →</span></p>
 
+      <div class="pillar-stage">
       <div class="pillars pillar-stack" id="pillarStack">
         <div class="pillar reveal p-product">
           <span class="pillar-num">01</span>
@@ -174,6 +175,8 @@
             <li>Vendor coordination</li>
           </ul>
         </div>
+      </div>
+
       </div>
 
       <div class="stack-controls reveal" id="stackControls">
@@ -267,8 +270,8 @@
   <section class="section" id="experience">
     <div class="section-inner">
       <div class="eyebrow reveal">04 — WORK EXPERIENCE</div>
-      <h2 class="reveal">A release log of the last five years.</h2>
-      <p class="lede reveal d1">Twelve years across engineering, banking, and AI platforms — from Systems Engineer to Senior Program Manager.</p>
+      <h2 class="reveal">A release log, 2012 to today.</h2>
+      <p class="lede reveal d1">From Systems Engineer to Senior Program Manager — across engineering, banking, and AI platforms.</p>
 
       <div class="exp-summary reveal d2">
         <div class="exp-now">
@@ -307,9 +310,43 @@
     <div class="section-inner">
       <div class="eyebrow reveal">05 — FEATURED PROJECTS</div>
       <h2 class="reveal">Selected work.</h2>
-      <p class="lede reveal d1">Two products I've owned end to end — an AI-driven engagement platform and a gold trading feature inside a private bank's mobile app.</p>
+      <p class="lede reveal d1">Products I've helped ship — an AI-driven engagement platform, a gold trading feature inside a private bank's mobile app, and an award-winning retail computer-vision build.</p>
 
-      <div class="projects-grid">
+      <div class="proj-carousel" id="projCarousel">
+        <div class="pc-controls">
+          <div class="pc-dots" id="pcDots"></div>
+        </div>
+        <div class="pc-viewport">
+          <div class="pc-track" id="projTrack">
+
+        <div class="proj-card reveal">
+          <div class="proj-cover resi-cover">
+            <span class="pv-kind">CASE STUDY</span>
+            <span class="pv-title">Retail Shelf<br>Intelligence</span>
+          </div>
+          <div class="proj-head">
+            <h3>Resi — Retail Shelf Intelligence</h3>
+            <span class="status-pill award">AWARD</span>
+          </div>
+          <p>A computer-vision platform that checks whether a store's shelves match the planogram. Staff photograph a shelf; a YOLO-based model compares it against the stored planogram and returns what needs restocking and what's misplaced, while managers track compliance and staff time on a dashboard.</p>
+          <div class="kpi-row">
+            <span class="kpi">Python</span>
+            <span class="kpi">FastAPI</span>
+            <span class="kpi">YOLO</span>
+            <span class="kpi">OpenCV</span>
+            <span class="kpi">React Native</span>
+            <span class="kpi">React</span>
+            <span class="kpi">Docker</span>
+          </div>
+          <div class="proj-links">
+            <a class="btn btn-primary" href="resi.html">Read case study →</a>
+            <a class="site-link" href="https://github.com/abinayavelusamy2918/RetailShelfIntelligence" target="_blank" rel="noopener">
+              GitHub
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </a>
+          </div>
+        </div>
+
         <div class="proj-card reveal">
           <a class="site-preview" href="https://www.purands.com/" target="_blank" rel="noopener" aria-label="Open the Purands website in a new tab">
             <img src="assets/purands-preview.jpg" alt="Analytics dashboard from the Purands platform" width="900" height="513" loading="lazy" decoding="async">
@@ -363,6 +400,14 @@
             <span class="kpi">Onboarding 1 day → ~30 min</span>
           </div>
         </div>
+          </div>
+        </div>
+        <button class="pc-edge prev" type="button" id="pcPrev" aria-label="Previous projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="pc-edge next" type="button" id="pcNext" aria-label="More projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
       </div>
     </div>
   </section>

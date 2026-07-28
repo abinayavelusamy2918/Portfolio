@@ -281,6 +281,73 @@
     restart();
   })();
 
+  /* ========== SELECTED WORK: horizontal carousel ========== */
+  (function(){
+    var wrap = document.getElementById('projCarousel');
+    var track = document.getElementById('projTrack');
+    var dotsWrap = document.getElementById('pcDots');
+    var prev = document.getElementById('pcPrev');
+    var next = document.getElementById('pcNext');
+    if(!wrap || !track) return;
+
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.proj-card'));
+    if(!cards.length) return;
+    var i = 0;
+
+    function perView(){
+      // derive from actual layout so it follows the CSS breakpoint
+      var cw = cards[0].getBoundingClientRect().width;
+      var vw = track.parentNode.getBoundingClientRect().width;
+      return Math.max(1, Math.round(vw / (cw + 22)));
+    }
+    function maxIndex(){ return Math.max(0, cards.length - perView()); }
+
+    function paint(){
+      var step = cards[0].getBoundingClientRect().width + 22;
+      i = Math.min(i, maxIndex());
+      track.style.transform = 'translateX(' + (-i * step) + 'px)';
+      prev.disabled = i <= 0;
+      next.disabled = i >= maxIndex();
+      Array.prototype.forEach.call(dotsWrap.children, function(d, n){
+        d.classList.toggle('active', n === i);
+      });
+    }
+
+    function buildDots(){
+      dotsWrap.innerHTML = '';
+      for(var n = 0; n <= maxIndex(); n++){
+        (function(n){
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'pc-dot';
+          b.setAttribute('aria-label', 'Go to project ' + (n + 1));
+          b.addEventListener('click', function(){ i = n; paint(); });
+          dotsWrap.appendChild(b);
+        })(n);
+      }
+    }
+
+    prev.addEventListener('click', function(){ i = Math.max(0, i - 1); paint(); });
+    next.addEventListener('click', function(){ i = Math.min(maxIndex(), i + 1); paint(); });
+
+    function sync(){ buildDots(); paint(); }
+
+    var rt = null;
+    window.addEventListener('resize', function(){
+      clearTimeout(rt);
+      rt = setTimeout(sync, 150);
+    });
+
+    sync();
+    // Measuring at parse time can read a pre-layout width, which makes perView
+    // too high and wrongly disables the arrows. Re-sync once layout settles.
+    requestAnimationFrame(sync);
+    window.addEventListener('load', sync);
+    if(window.ResizeObserver){
+      new ResizeObserver(sync).observe(track.parentNode);
+    }
+  })();
+
   /* ========== SITE PREVIEW: cursor-tracked tilt ========== */
   // The card leans toward the cursor and lifts slightly, so it reads as openable.
   if(!reduceMotion){

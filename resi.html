@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resi — Retail Shelf Intelligence · Abinaya Velusamy</title>
+<meta name="description" content="Case study: Resi (Retail Shelf Intelligence) — a computer-vision platform for planogram compliance. Best Innovative AI Project, GECO Asia 2025.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="projects">
+
+<div class="bg-grid"></div>
+<div class="bg-glow g1"></div>
+<div class="bg-glow g2"></div>
+
+<div class="topbar">
+  <span class="brand">AV://console</span>
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation"><i></i><i></i><i></i></button>
+</div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <img class="avatar" src="assets/headshot.jpg" alt="Portrait of Abinaya Velusamy" width="160" height="160" decoding="async">
+    <strong>Abinaya Velusamy</strong>
+    Program &amp; Product Manager
+    <div class="status-line"><span class="dot"></span> OPEN TO OPPORTUNITIES</div>
+  </div>
+  <nav class="navlinks" id="navlinks">
+    <a href="index.html#home"><span class="idx">00</span> Home</a>
+    <a href="index.html#about"><span class="idx">01</span> About</a>
+    <a href="index.html#expertise"><span class="idx">02</span> Expertise</a>
+    <a href="index.html#philosophy"><span class="idx">03</span> How I Work</a>
+    <a href="experience.html"><span class="idx">04</span> Experience</a>
+    <a href="index.html#projects" class="active"><span class="idx">05</span> Projects</a>
+    <a href="index.html#education"><span class="idx">06</span> Education</a>
+    <a href="work-with-me.html"><span class="idx">07</span> Work With Me</a>
+    <a href="shop.html"><span class="idx">08</span> Shop</a>
+    <a href="index.html#contact"><span class="idx">09</span> Contact</a>
+  </nav>
+  <div class="sidebar-foot">
+    <a href="mailto:vabinaya8@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+      vabinaya8@gmail.com
+    </a>
+    <a href="https://linkedin.com/in/abinaya-velusamy" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M12 17v-4.5a2 2 0 0 1 4 0V17M12 12.5v4.5"/></svg>
+      LinkedIn
+    </a>
+    <a href="tel:+6591862918">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .8 3a2 2 0 0 1-.5 2.1L8 10.3a16 16 0 0 0 6 6l1.5-1.4a2 2 0 0 1 2.1-.5c1 .4 2 .7 3 .8a2 2 0 0 1 1.7 2Z"/></svg>
+      +65 9186 2918
+    </a>
+  </div>
+</aside>
+
+<main>
+
+  <section class="section" id="resi" style="border-top:none;padding-top:130px;">
+    <div class="section-inner">
+      <div class="eyebrow reveal">CASE STUDY — RESI</div>
+      <h2 class="reveal">Retail Shelf Intelligence.</h2>
+      <p class="lede reveal d1">A computer-vision platform that tells a store manager, in seconds, whether the shelves actually match the planogram — and how long it took staff to put them right.</p>
+
+      <div class="kpi-row reveal d1" style="margin-top:24px;">
+        <span class="kpi">Best Innovative AI Project</span>
+        <span class="kpi">GECO Asia Hackathon · 2025</span>
+      </div>
+
+      <div class="cs-links reveal d2">
+        <a class="btn btn-primary" href="https://github.com/abinayavelusamy2918/RetailShelfIntelligence" target="_blank" rel="noopener">View on GitHub →</a>
+        <a class="btn btn-ghost" href="index.html#projects">← Back to selected work</a>
+      </div>
+
+      <div class="toolkit-title reveal" style="margin-top:64px;">// THE_PROBLEM</div>
+      <h3 class="cs-h3 reveal">A planogram nobody can verify.</h3>
+      <div class="cs-prose reveal d1">
+        <p>Every store runs to a <strong>planogram</strong> — the plan for exactly which SKU sits where on which shelf. Compliance drives sales, but verifying it is manual and largely guesswork. The store manager we built for couldn't answer four basic questions:</p>
+      </div>
+      <div class="cs-problems reveal d1">
+        <div class="cs-problem"><span>01</span><p>Is the store actually adhering to the planogram right now?</p></div>
+        <div class="cs-problem"><span>02</span><p>Are the store keepers restocking the SKUs they're supposed to?</p></div>
+        <div class="cs-problem"><span>03</span><p>How many products are sitting in the wrong place?</p></div>
+        <div class="cs-problem"><span>04</span><p>How long is each staff member spending maintaining the shelves?</p></div>
+      </div>
+
+      <div class="toolkit-title reveal" style="margin-top:64px;">// THE_SOLUTION</div>
+      <h3 class="cs-h3 reveal">Point a phone at the shelf.</h3>
+      <div class="cs-prose reveal d1">
+        <p>Staff photograph the shelf in a mobile app. The image goes to a computer-vision service that detects every product on it, compares that against the planogram held in the backend, and returns exactly what needs fixing. Managers see the aggregate on a dashboard.</p>
+      </div>
+
+      <div class="console resi-scan reveal d1">
+        <div class="console-bar">
+          <div class="console-lights"><i></i><i></i><i></i></div>
+          <div class="label">SHELF_SCAN.LIVE</div>
+        </div>
+        <div class="rs-stage">
+          <svg class="rs-svg" viewBox="0 0 640 300" role="img" aria-label="Shelf scan: products detected, gaps needing restock, and a misplaced item">
+            <line class="shelf" x1="34" y1="114" x2="606" y2="114"/>
+            <rect class="p" x="44" y="58" width="46" height="54" rx="3"/>
+            <rect class="p" x="107" y="58" width="46" height="54" rx="3"/>
+            <rect class="p" x="170" y="58" width="46" height="54" rx="3"/>
+            <rect class="p faded" x="233" y="58" width="46" height="54" rx="3"/>
+            <rect class="gap" x="233" y="58" width="46" height="54" rx="3"/>
+            <rect class="p" x="296" y="58" width="46" height="54" rx="3"/>
+            <rect class="p" x="359" y="58" width="46" height="54" rx="3"/>
+            <rect class="p" x="422" y="58" width="46" height="54" rx="3"/>
+            <rect class="p" x="485" y="58" width="46" height="54" rx="3"/>
+            <rect class="p" x="548" y="58" width="46" height="54" rx="3"/>
+            <line class="shelf" x1="34" y1="196" x2="606" y2="196"/>
+            <rect class="p" x="44" y="140" width="46" height="54" rx="3"/>
+            <rect class="p" x="107" y="140" width="46" height="54" rx="3"/>
+            <rect class="p" x="170" y="140" width="46" height="54" rx="3"/>
+            <rect class="p" x="233" y="140" width="46" height="54" rx="3"/>
+            <rect class="p" x="296" y="140" width="46" height="54" rx="3"/>
+            <rect class="p" x="359" y="140" width="46" height="54" rx="3"/>
+            <rect class="bad" x="359" y="140" width="46" height="54" rx="3"/>
+            <rect class="p" x="422" y="140" width="46" height="54" rx="3"/>
+            <rect class="p" x="485" y="140" width="46" height="54" rx="3"/>
+            <rect class="p" x="548" y="140" width="46" height="54" rx="3"/>
+            <line class="shelf" x1="34" y1="278" x2="606" y2="278"/>
+            <rect class="p" x="44" y="222" width="46" height="54" rx="3"/>
+            <rect class="p faded" x="107" y="222" width="46" height="54" rx="3"/>
+            <rect class="gap" x="107" y="222" width="46" height="54" rx="3"/>
+            <rect class="p" x="170" y="222" width="46" height="54" rx="3"/>
+            <rect class="p" x="233" y="222" width="46" height="54" rx="3"/>
+            <rect class="p" x="296" y="222" width="46" height="54" rx="3"/>
+            <rect class="p" x="359" y="222" width="46" height="54" rx="3"/>
+            <rect class="p faded" x="422" y="222" width="46" height="54" rx="3"/>
+            <rect class="gap" x="422" y="222" width="46" height="54" rx="3"/>
+            <rect class="p" x="485" y="222" width="46" height="54" rx="3"/>
+            <rect class="p" x="548" y="222" width="46" height="54" rx="3"/>
+          </svg>
+          <div class="rs-beam" aria-hidden="true"></div>
+          <div class="rs-chips" aria-hidden="true">
+            <span class="rs-chip ok">planogram matched</span>
+            <span class="rs-chip warn">3 to restock</span>
+            <span class="rs-chip bad">1 misplaced</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow reveal d2">
+        <div class="flow-step">
+          <div class="fs-num">01</div>
+          <div class="fs-body"><h4>Capture</h4><p>Staff photograph the shelf in the mobile app — no special hardware.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="fs-num">02</div>
+          <div class="fs-body"><h4>Detect</h4><p>A YOLO model plus a vision-language model identify every product and its position.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="fs-num">03</div>
+          <div class="fs-body"><h4>Compare</h4><p>Detections are checked against the store's stored planogram.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="fs-num">04</div>
+          <div class="fs-body"><h4>Act</h4><p>The app returns a worklist: what to restock, what's misplaced.</p></div>
+        </div>
+        <div class="flow-step">
+          <div class="fs-num">05</div>
+          <div class="fs-body"><h4>Measure</h4><p>Compliance and staff time roll up to a manager dashboard on web or mobile.</p></div>
+        </div>
+      </div>
+
+      <div class="toolkit-title reveal" style="margin-top:64px;">// ARCHITECTURE</div>
+      <h3 class="cs-h3 reveal">Four services.</h3>
+      <div class="fact-panel reveal d1" style="max-width:760px;">
+        <div class="fact-row"><span>MOBILE</span><span>Staff capture app — React Native, Expo</span></div>
+        <div class="fact-row"><span>WEB</span><span>Manager dashboard — React, Vite, Recharts</span></div>
+        <div class="fact-row"><span>CV SERVICE</span><span>Product detection — Python, FastAPI, YOLO, OpenCV, vision-language model</span></div>
+        <div class="fact-row"><span>API SERVICE</span><span>Orchestration, auth, planogram data — FastAPI, JWT</span></div>
+        <div class="fact-row"><span>INFRA</span><span>Docker Compose across all services</span></div>
+      </div>
+
+      <div class="toolkit-title reveal" style="margin-top:44px;">// STACK</div>
+      <div class="kpi-row reveal d1">
+        <span class="kpi">Python</span>
+        <span class="kpi">FastAPI</span>
+        <span class="kpi">YOLO</span>
+        <span class="kpi">OpenCV</span>
+        <span class="kpi">Vision-language model</span>
+        <span class="kpi">React Native</span>
+        <span class="kpi">Expo</span>
+        <span class="kpi">React</span>
+        <span class="kpi">Vite</span>
+        <span class="kpi">Recharts</span>
+        <span class="kpi">Docker</span>
+      </div>
+
+
+      <div class="cs-links reveal d2" style="margin-top:48px;">
+        <a class="btn btn-primary" href="https://github.com/abinayavelusamy2918/RetailShelfIntelligence" target="_blank" rel="noopener">View on GitHub →</a>
+        <a class="btn btn-ghost" href="index.html#projects">← Back to selected work</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="section-inner">
+      <div class="footer">
+        <span>© 2026 Abinaya Velusamy. All rights reserved.</span>
+        <span>Singapore · Open worldwide by arrangement</span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -143,7 +143,10 @@
             io.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      // Expand the trigger area downward instead of shrinking it: content
+      // straddling the fold must be visible, otherwise the page looks finished
+      // and nobody scrolls.
+      }, { threshold: 0, rootMargin: '0px 0px 18% 0px' });
 
       // Anything already on screen is revealed outright. This runs late (after the
       // boot intro), so waiting on the observer's first dispatch would leave the
@@ -151,7 +154,7 @@
       var vh = window.innerHeight;
       revealEls.forEach(function(el){
         var top = el.getBoundingClientRect().top;
-        if(top < vh * 0.9){ el.classList.add('is-visible'); }
+        if(top < vh){ el.classList.add('is-visible'); }
         else { io.observe(el); }
       });
     }

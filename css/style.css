@@ -152,7 +152,7 @@ h1,h2,h3,h4{ margin: 0; font-family: var(--font-display); font-weight: 600; }
 .dot{ width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 0 rgba(84,199,159,0.6); animation: pulse 2.2s infinite; }
 @keyframes pulse{ 0%{ box-shadow: 0 0 0 0 rgba(84,199,159,0.5);} 70%{ box-shadow: 0 0 0 7px rgba(84,199,159,0);} 100%{ box-shadow: 0 0 0 0 rgba(84,199,159,0);} }
 
-.navlinks{ display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.navlinks{ display: flex; flex-direction: column; gap: 2px; }
 .navlinks a{
   font-family: var(--font-mono); font-size: 13px; color: var(--text-dim);
   padding: 9px 10px; border-radius: 6px; display: flex; align-items: center; gap: 10px;

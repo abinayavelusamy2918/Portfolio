@@ -1050,6 +1050,16 @@ body[data-page="home"] .site-footer{ margin-top: auto; }
 
 /* ===================== ABOUT: THINKING MODEL ===================== */
 .model-block{ margin-top: 60px; padding-top: 34px; border-top: 1px solid var(--line); }
+/* leading variant: sits under the h1, so no divider and a shorter stage */
+.model-block--lead{ margin-top: 30px; padding-top: 0; border-top: none; }
+.model-block--lead .model-h2{ font-size: clamp(18px, 1.9vw, 22px); margin-bottom: 18px; }
+.model-block--lead .model-stage model-viewer{ height: 300px; }
+@media (max-height: 860px){
+  .model-block--lead{ margin-top: 20px; }
+  .model-block--lead .model-stage model-viewer{ height: 252px; }
+  .model-block--lead + .about-grid{ margin-top: 32px !important; padding-top: 24px; }
+}
+.model-block--lead + .about-grid{ margin-top: 46px !important; padding-top: 30px; border-top: 1px solid var(--line); }
 .model-h2{ font-size: clamp(20px, 2.2vw, 26px); margin-bottom: 24px; }
 .model-layout{ display: grid; grid-template-columns: 1.05fr 1fr; gap: 34px; align-items: start; }
 .model-stage{

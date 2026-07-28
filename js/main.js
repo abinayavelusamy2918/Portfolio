@@ -294,12 +294,10 @@
     if(!cards.length) return;
     var i = 0;
 
-    function perView(){
-      // derive from actual layout so it follows the CSS breakpoint
-      var cw = cards[0].getBoundingClientRect().width;
-      var vw = track.parentNode.getBoundingClientRect().width;
-      return Math.max(1, Math.round(vw / (cw + 22)));
-    }
+    // Mirror the CSS breakpoint directly. Measuring rendered widths was
+    // unreliable before layout settled and produced a wrong dot count.
+    var oneUp = window.matchMedia('(max-width: 860px)');
+    function perView(){ return oneUp.matches ? 1 : 2; }
     function maxIndex(){ return Math.max(0, cards.length - perView()); }
 
     function paint(){

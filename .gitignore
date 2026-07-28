@@ -6,3 +6,6 @@
 .vscode/
 .idea/
 assets/abi_professionalheashot1.png
+
+# Local Netlify folder
+.netlify

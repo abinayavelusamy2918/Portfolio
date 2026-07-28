@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+._*
+
+# editor
+.vscode/
+.idea/
+assets/abi_professionalheashot1.png

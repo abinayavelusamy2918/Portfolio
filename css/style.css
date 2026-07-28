@@ -1033,3 +1033,30 @@ main{
 @media (prefers-reduced-motion: reduce){
   .feat-card:hover, .route:hover{ transform: none; }
 }
+
+/* ===================== EDUCATION: three separated blocks ===================== */
+.edu-block{ margin-top: 46px; padding-top: 30px; border-top: 1px solid var(--line); }
+.edu-block:first-of-type{ margin-top: 40px; }
+.edu-block-head{ display: flex; align-items: baseline; gap: 12px; margin-bottom: 22px; }
+.edu-block-head h2{ font-size: clamp(19px, 2vw, 23px); margin: 0; }
+.edu-count{
+  font-family: var(--font-mono); font-size: 11px; color: var(--brass);
+  border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px;
+}
+.edu-degree h3{ font-size: 16.5px; margin-bottom: 3px; }
+.cred-item h3{ font-size: 15px; margin-bottom: 2px; }
+
+/* awards as a scannable grid rather than an undifferentiated list */
+.award-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.award-card{
+  border: 1px solid var(--line-soft); border-radius: 8px; padding: 18px 20px;
+  background: var(--panel); display: flex; flex-direction: column; gap: 4px;
+  transition: border-color .25s ease, transform .25s ease;
+}
+.award-card:hover{ border-color: var(--line); transform: translateY(-2px); }
+.award-card .aw-year{ font-family: var(--font-mono); font-size: 11.5px; color: var(--brass); }
+.award-card h3{ font-size: 15px; }
+.award-card .meta{ font-family: var(--font-mono); font-size: 11.5px; color: var(--text-faint); }
+@media (max-width: 980px){ .award-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px){ .award-grid{ grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce){ .award-card:hover{ transform: none; } }

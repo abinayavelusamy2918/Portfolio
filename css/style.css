@@ -1061,3 +1061,7 @@ main{
 @media (max-width: 620px){ .award-grid{ grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce){ .award-card:hover{ transform: none; } }
 
+
+/* inline prose link */
+.inline-link{ color: var(--brass); border-bottom: 1px solid rgba(226,169,78,.35); transition: border-color .2s ease; }
+.inline-link:hover{ border-bottom-color: var(--brass); }

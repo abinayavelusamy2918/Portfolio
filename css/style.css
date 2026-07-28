@@ -1057,9 +1057,9 @@ body[data-page="home"] .site-footer{ margin-top: auto; }
 @media (max-height: 860px){
   .model-block--lead{ margin-top: 20px; }
   .model-block--lead .model-stage model-viewer{ height: 252px; }
-  .model-block--lead + .about-grid{ margin-top: 32px !important; padding-top: 24px; }
+  .model-block--lead + .about-grid{ margin-top: 38px !important; }
 }
-.model-block--lead + .about-grid{ margin-top: 46px !important; padding-top: 30px; border-top: 1px solid var(--line); }
+.model-block--lead + .about-grid{ margin-top: 52px !important; }
 .model-h2{ font-size: clamp(20px, 2.2vw, 26px); margin-bottom: 24px; }
 .model-layout{ display: grid; grid-template-columns: 1.05fr 1fr; gap: 34px; align-items: start; }
 .model-stage{

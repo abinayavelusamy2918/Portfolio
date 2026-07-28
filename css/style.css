@@ -295,12 +295,14 @@ main{
 
 /* ---- sliding stack: cards layered, active one in front ---- */
 .pillar-stack{
-  display: block; position: relative;
-  height: 400px; margin: 44px auto 34px; max-width: 640px;
+  display: grid; grid-template-columns: 1fr; position: relative;
+  margin: 44px auto 26px; max-width: 640px;
+  /* room below for the cards peeking out from behind the front one */
+  padding-bottom: 78px;
   perspective: 1400px; cursor: pointer;
 }
 .pillar-stack .pillar{
-  position: absolute; top: 0; left: 0; right: 0;
+  position: relative; grid-area: 1 / 1;
   transition: transform .62s cubic-bezier(.16,.8,.3,1),
               opacity .5s ease, filter .5s ease, box-shadow .4s ease;
   will-change: transform, opacity;
@@ -371,12 +373,11 @@ main{
 .sc-dot:hover{ border-color: var(--line-soft); background: var(--panel); }
 .sc-dot.active{ border-color: var(--line); background: var(--brass-soft); }
 
-@media (max-width: 640px){ .pillar-stack{ height: 420px; } }
 
 /* no stacking without motion — show every discipline at once */
 @media (prefers-reduced-motion: reduce){
-  .pillar-stack{ display: grid; grid-template-columns: 1fr; height: auto; max-width: none; cursor: default; }
-  .pillar-stack .pillar{ position: static; opacity: 1 !important; transform: none !important; filter: none !important; }
+  .pillar-stack{ display: grid; grid-template-columns: 1fr; gap: 18px; height: auto; max-width: none; padding-bottom: 0; cursor: default; }
+  .pillar-stack .pillar{ position: static; grid-area: auto; opacity: 1 !important; transform: none !important; filter: none !important; }
   .pillar-stack .pillar ul li{ opacity: 1; transform: none; }
   .stack-controls{ display: none; }
 }

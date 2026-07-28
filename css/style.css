@@ -1060,3 +1060,9 @@ main{
 @media (max-width: 980px){ .award-grid{ grid-template-columns: 1fr 1fr; } }
 @media (max-width: 620px){ .award-grid{ grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce){ .award-card:hover{ transform: none; } }
+
+/* profile link in the footer — GitHub isn't a contact channel, so it lives here */
+.footer .foot-right{ display: inline-flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.foot-link{ display: inline-flex; align-items: center; gap: 7px; color: var(--text-dim); transition: color .2s ease; }
+.foot-link:hover{ color: var(--brass); }
+.foot-link svg{ width: 13px; height: 13px; }

@@ -191,10 +191,100 @@
     });
   }
 
+  /* ========== HERO: cursor depth parallax ========== */
+  // Background layers drift at different rates, so the hero reads as layered
+  // rather than flat. Written as CSS vars; the CSS uses the standalone
+  // `translate` property so it composes with the existing drift keyframes.
+  if(!reduceMotion && window.matchMedia('(pointer: fine)').matches){
+    var root = document.documentElement;
+    var pending = false, lastX = 0, lastY = 0;
+    window.addEventListener('mousemove', function(e){
+      lastX = e.clientX; lastY = e.clientY;
+      if(pending) return;
+      pending = true;
+      requestAnimationFrame(function(){
+        pending = false;
+        var px = (lastX / window.innerWidth  - 0.5) * 2;   // -1 .. 1
+        var py = (lastY / window.innerHeight - 0.5) * 2;
+        root.style.setProperty('--px', px.toFixed(3));
+        root.style.setProperty('--py', py.toFixed(3));
+      });
+    }, { passive: true });
+  }
+
+  /* ========== EXPERTISE: sliding card stack ========== */
+  // Cards are layered; advancing slides the front one up and out and promotes
+  // the next. Under reduced motion the CSS falls back to a plain stacked list.
+  (function(){
+    var stack = document.getElementById('pillarStack');
+    var dotsWrap = document.getElementById('stackDots');
+    if(!stack || reduceMotion) return;
+
+    var cards = Array.prototype.slice.call(stack.querySelectorAll('.pillar'));
+    if(cards.length < 2) return;
+    var n = cards.length, active = 0, animating = false, timer = null;
+
+    var dots = cards.map(function(card, i){
+      var label = (card.querySelector('.tag') || {}).textContent || ('0' + (i + 1));
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'sc-dot';
+      b.innerHTML = '<i></i>' + label.trim();
+      b.setAttribute('aria-label', 'Show ' + label.trim());
+      b.addEventListener('click', function(e){ e.stopPropagation(); go(i); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+
+    function paint(){
+      cards.forEach(function(c, i){
+        c.setAttribute('data-pos', (i - active + n) % n);
+      });
+      dots.forEach(function(d, i){
+        d.classList.toggle('active', i === active);
+        // borrow the card's accent so the dot matches the discipline
+        d.style.setProperty('--accent', getComputedStyle(cards[i]).getPropertyValue('--accent'));
+      });
+    }
+
+    function go(next){
+      if(animating || next === active) return;
+      animating = true;
+      var leaving = cards[active];
+      leaving.classList.add('is-leaving');
+      active = (next + n) % n;
+      setTimeout(function(){
+        leaving.classList.remove('is-leaving');
+        paint();
+        animating = false;
+      }, 260);
+      paint();
+      restart();
+    }
+
+    function step(d){ go((active + d + n) % n); }
+
+    stack.addEventListener('click', function(){ step(1); });
+    document.querySelectorAll('#stackControls .sc-btn').forEach(function(b){
+      b.addEventListener('click', function(e){
+        e.stopPropagation();
+        step(parseInt(b.getAttribute('data-dir'), 10));
+      });
+    });
+
+    // gentle autoplay, paused whenever someone is actually looking at it
+    function restart(){ clearInterval(timer); timer = setInterval(function(){ step(1); }, 5200); }
+    stack.addEventListener('mouseenter', function(){ clearInterval(timer); });
+    stack.addEventListener('mouseleave', restart);
+
+    paint();
+    restart();
+  })();
+
   /* ========== SITE PREVIEW: cursor-tracked tilt ========== */
   // The card leans toward the cursor and lifts slightly, so it reads as openable.
   if(!reduceMotion){
-    document.querySelectorAll('.site-preview').forEach(function(card){
+    document.querySelectorAll('.site-preview, .pillar').forEach(function(card){
       var raf = null;
       function apply(e){
         raf = null;

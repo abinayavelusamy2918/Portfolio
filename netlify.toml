@@ -1,0 +1,38 @@
+# Static site — no build step. Netlify serves the repo root as-is.
+[build]
+  publish = "."
+  command = ""
+
+# Pretty URLs: /experience instead of /experience.html
+[[redirects]]
+  from = "/experience"
+  to = "/experience.html"
+  status = 200
+
+[[redirects]]
+  from = "/work-with-me"
+  to = "/work-with-me.html"
+  status = 200
+
+[[redirects]]
+  from = "/shop"
+  to = "/shop.html"
+  status = 200
+
+[[redirects]]
+  from = "/resi"
+  to = "/resi.html"
+  status = 200
+
+# Long cache for images; the HTML and versioned CSS/JS stay fresh.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

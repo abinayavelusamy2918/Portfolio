@@ -189,6 +189,38 @@
       if(box.top < cvh * 0.9 && box.bottom > 0){ animateCounter(el); }
       else { cio.observe(el); }
     });
+
+    // Non-numeric console cells can't count up, so they decrypt instead —
+    // same glyph-scramble used by the boot intro, so the four cells animate together.
+    var scrambles = document.querySelectorAll('[data-scramble]');
+    function scrambleIn(el){
+      var text = el.getAttribute('data-scramble');
+      if(reduceMotion){ el.textContent = text; return; }
+      var start = null, dur = 1100;
+      function frame(ts){
+        if(start === null) start = ts;
+        var p = Math.min(1, (ts - start) / dur);
+        var locked = Math.floor(p * text.length);
+        var out = text.slice(0, locked);
+        for(var i = locked; i < text.length; i++){
+          out += text[i] === ' ' ? ' ' : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+        }
+        el.textContent = out;
+        if(p < 1){ requestAnimationFrame(frame); } else { el.textContent = text; }
+      }
+      requestAnimationFrame(frame);
+    }
+    var svh = window.innerHeight;
+    scrambles.forEach(function(el){
+      var box = el.getBoundingClientRect();
+      if(box.top < svh * 0.9 && box.bottom > 0){ scrambleIn(el); }
+      else {
+        var sio = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){ if(e.isIntersecting){ scrambleIn(e.target); sio.unobserve(e.target); } });
+        }, { threshold: 0.6 });
+        sio.observe(el);
+      }
+    });
   }
 
   /* ========== HERO: cursor depth parallax ========== */

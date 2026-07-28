@@ -1026,3 +1026,24 @@ main{
 
 
 @view-transition{ navigation: auto; }
+
+/* icon + label button (hero GitHub) */
+.btn-icon{ display: inline-flex; align-items: center; gap: 8px; }
+.btn-icon svg{ width: 14px; height: 14px; flex-shrink: 0; }
+
+/* ---- splash home: fit the viewport exactly, no scrolling ---- */
+body[data-page="home"] main{ min-height: 100vh; }
+body[data-page="home"] .hero{
+  min-height: 0; flex: 1;
+  padding-top: 100px; padding-bottom: 40px;
+}
+@media (max-height: 780px){
+  body[data-page="home"] .hero{ padding-top: 76px; padding-bottom: 28px; }
+  body[data-page="home"] .console-cell{ padding: 20px 22px; }
+}
+body[data-page="home"] .site-footer{ margin-top: auto; }
+@media (min-width: 961px){
+  /* the sidebar is fixed, so only main can overflow — clamp it */
+  body[data-page="home"]{ overflow: hidden; }
+  body[data-page="home"] main{ height: 100vh; }
+}

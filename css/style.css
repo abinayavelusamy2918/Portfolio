@@ -797,7 +797,7 @@ main{
 .sc-btn:disabled{ opacity: .3; cursor: default; }
 .sc-btn:disabled:hover{ color: var(--text-dim); border-color: var(--line-soft); background: var(--panel); }
 /* links row at the foot of a project card */
-.proj-links{ display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 4px; }
+.proj-links{ display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: auto; padding-top: 16px; }
 
 /* CSS-drawn cover so a card without a screenshot still matches the others */
 .proj-cover{

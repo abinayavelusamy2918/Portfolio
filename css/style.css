@@ -812,11 +812,6 @@ main{
                     linear-gradient(90deg, rgba(237,239,242,0.05) 1px, transparent 1px);
   background-size: 30px 30px;
 }
-.proj-cover .pv-kind{
-  position: relative; z-index: 1; align-self: flex-start;
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em;
-  padding: 3px 8px; border-radius: 4px; background: rgba(6,12,19,0.55); color: var(--text);
-}
 .proj-cover .pv-title{
   position: relative; z-index: 1;
   font-family: var(--font-display); font-size: 26px; font-weight: 600; color: #fff; line-height: 1.12;
@@ -1049,23 +1044,8 @@ body[data-page="home"] .site-footer{ margin-top: auto; }
 }
 
 /* ===================== ABOUT: THINKING MODEL ===================== */
-.model-block{ margin-top: 60px; padding-top: 34px; border-top: 1px solid var(--line); }
-/* leading variant: sits under the h1, so no divider and a shorter stage */
-.model-block--lead{ margin-top: 30px; padding-top: 0; border-top: none; }
-.model-block--lead .model-h2{ font-size: clamp(18px, 1.9vw, 22px); margin-bottom: 18px; }
-.model-block--lead .model-stage model-viewer{ height: 300px; }
-@media (max-height: 860px){
-  .model-block--lead{ margin-top: 20px; }
-  .model-block--lead .model-stage model-viewer{ height: 252px; }
-  .model-block--lead + .about-grid{ margin-top: 38px !important; }
-}
-.model-block--lead + .about-grid{ margin-top: 52px !important; }
 .model-h2{ font-size: clamp(20px, 2.2vw, 26px); margin-bottom: 24px; }
-.model-layout{ display: grid; grid-template-columns: 1.05fr 1fr; gap: 34px; align-items: start; }
-.model-stage{
-  border: 1px solid var(--line-soft); border-radius: 12px; overflow: hidden;
-  background: radial-gradient(120% 90% at 50% 0%, var(--panel-2), var(--bg));
-}
+.model-stage{ border: none; background: none; }
 .model-stage model-viewer{
   width: 100%; height: 380px; display: block;
   background-color: transparent;
@@ -1087,6 +1067,22 @@ body[data-page="home"] .site-footer{ margin-top: auto; }
   transform: translateY(-1px); box-shadow: 0 0 0 3px rgba(255,255,255,.04);
 }
 @media (max-width: 900px){
-  .model-layout{ grid-template-columns: 1fr; }
-  .model-stage model-viewer{ height: 320px; }
+    .model-stage model-viewer{ height: 320px; }
 }
+
+/* ---- About: viewer in the right column, words continue below the prose ---- */
+.model-aside{ margin-top: 26px; }
+.model-aside .toolkit-title{ margin-bottom: 10px; }
+.model-aside .model-stage model-viewer{
+  width: 100%; height: 300px; display: block;
+  background-color: transparent; --poster-color: transparent;
+}
+.model-words{ margin-top: 48px; max-width: 760px; }
+.model-words .model-h2{ font-size: clamp(20px, 2.2vw, 26px); margin-bottom: 18px; }
+.model-words-inner p{ color: var(--text-dim); font-size: 14.5px; margin: 0 0 16px; }
+@media (max-width: 860px){
+  .model-aside{ margin-top: 20px; }
+  .model-aside .model-stage model-viewer{ height: 260px; }
+}
+
+.about-side{ display: flex; flex-direction: column; }
